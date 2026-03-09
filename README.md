@@ -1,7 +1,7 @@
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=000000&height=200&section=header&text=Computer%20Architecture&fontSize=50&fontAlignY=35&desc=Memory,%20Assembly%20%26%20Debuggers&descAlignY=55&descSize=20&fontColor=ffffff" alt="Header Banner" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=000000&height=200&section=header&text=Computer%20Architecture&fontSize=50&fontAlignY=35&desc=Memory,%20Assembly%20and%20Debuggers&descAlignY=55&descSize=20&fontColor=ffffff" alt="Header Banner" width="100%" />
 
-  # 💻 FIAP 2026 - Computer Architecture, Memory, Assembly & Debuggers
+# 💻 FIAP 2026 - Computer Architecture, Memory, Assembly & Debuggers
 
   **Turma 1TDCPV - 1º e 2º Semestres**
 
