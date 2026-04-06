@@ -1,7 +1,20 @@
 <div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=ed145b&height=150&section=header&text=Reverse%20Engineering%20Writeup&fontSize=40&fontColor=ffffff" alt="Header Banner" width="100%" />
+
   <h3>FIAP 2026 — COMPUTER_ARCHITECTURE_MEMORY_ASSEMBLY_AND_DEBUGGERS_1SM_2026</h3>
-  <p><strong>Aluno:</strong> Paulo André Carminati | <strong>RM:</strong> 570877</p>
-  <p><strong>Data de Conclusão:</strong> 10 de abril de 2026 às 23:59</p>
+  
+  <p>
+    <img src="https://img.shields.io/badge/Aluno-Paulo_André_Carminati-ed145b?style=for-the-badge&logo=readme&logoColor=white" alt="Aluno" />
+    <img src="https://img.shields.io/badge/RM-570877-000000?style=for-the-badge" alt="RM" />
+    <img src="https://img.shields.io/badge/Status-Concluído-success?style=for-the-badge&logo=checkmarx&logoColor=white" alt="Status" />
+  </p>
+
+  <p>
+    <img src="https://img.shields.io/badge/Target-Bypass.exe-blue?style=flat-square&logo=target" alt="Target" />
+    <img src="https://img.shields.io/badge/Platform-HackTheBox-9fe52d?style=flat-square&logo=hackthebox&logoColor=white" alt="HTB" />
+    <img src="https://img.shields.io/badge/Tool-x32dbg-100000?style=flat-square&logo=gnu&logoColor=white" alt="x32dbg" />
+    <img src="https://img.shields.io/badge/.NET-512BD4?style=flat-square&logo=dotnet&logoColor=white" alt=".NET" />
+  </p>
 
   <br>
 
@@ -23,9 +36,9 @@
 Este documento apresenta o *writeup* completo do processo de engenharia reversa do desafio **Bypass**, da plataforma **Hack The Box (HTB)**. O objetivo é analisar o binário `Bypass.exe` para identificar as credenciais de acesso (usuário e flag/senha) através de análise dinâmica de memória.
 
 **Instruções do Checkpoint:**
-- Obter a flag usando o `x32dbg`.
-- Documentar o passo a passo (Writeup).
-- Garantir que o processo técnico seja claro, demonstrando o domínio das ferramentas de depuração.
+- 🎯 Obter a flag usando o `x32dbg`.
+- 📝 Documentar o passo a passo (Writeup).
+- 🧠 Garantir que o processo técnico seja claro, demonstrando o domínio das ferramentas de depuração.
 
 ---
 
@@ -47,16 +60,16 @@ Para realizar esta análise, foram seguidos os requisitos iniciais:
 
 Antes de executar o binário, foi realizada uma análise estática (triage) para entender a arquitetura do programa:
 
-- **Arquitetura:** 32-bit (x86).
-- **Framework:** .NET Framework 4.5.2.
-- **Observação:** Como é um binário .NET, ele normalmente usa o runtime do CLR (Common Language Runtime), o que significa que o código é compilado JIT (Just-In-Time) durante a execução.
+- 🏗️ **Arquitetura:** 32-bit (x86).
+- ⚙️ **Framework:** .NET Framework 4.5.2.
+- 💡 **Observação:** Como é um binário .NET, ele normalmente usa o runtime do CLR (Common Language Runtime), o que significa que o código é compilado JIT (Just-In-Time) durante a execução.
 
 ### 2. Análise de Código (dnSpy/ILSpy)
 
 Para entender a lógica de proteção, o binário foi aberto em um descompilador .NET.
 
-- **Descoberta:** O programa utiliza a classe `RijndaelManaged` (uma variante do AES) para criptografia.
-- **Lógica de Comparação:** Identificou-se que o programa lê um fluxo de bytes cifrados de um recurso interno, descriptografa-os em tempo de execução e compara o resultado com a entrada do usuário através de `System.String.Equality`.
+- 🔓 **Descoberta:** O programa utiliza a classe `RijndaelManaged` (uma variante do AES) para criptografia.
+- 🔄 **Lógica de Comparação:** Identificou-se que o programa lê um fluxo de bytes cifrados de um recurso interno, descriptografa-os em tempo de execução e compara o resultado com a entrada do usuário através de `System.String.Equality`.
 
 ### 3. Análise Dinâmica e Depuração (x32dbg)
 
@@ -90,9 +103,9 @@ Abaixo, a captura de tela demonstrando o momento exato em que a flag foi interce
 
 Ao monitorar o heap de memória durante a validação da entrada:
 
-- **Localização:** Registrador `EDX` / aba de referências de string.
-- **Flag Encontrada:** `HTB{...}` (Conforme demonstrado no vídeo em **17:26**).
-- **Vulnerabilidade Técnica:** O software armazena o segredo descriptografado em memória de forma insegura para realizar a comparação de strings, permitindo a extração fácil através de técnicas de depuração dinâmica.
+- 📍 **Localização:** Registrador `EDX` / aba de referências de string.
+- 🚩 **Flag Encontrada:** `HTB{...}` (Conforme demonstrado no vídeo em **17:26**).
+- ⚠️ **Vulnerabilidade Técnica:** O software armazena o segredo descriptografado em memória de forma insegura para realizar a comparação de strings, permitindo a extração fácil através de técnicas de depuração dinâmica.
 
 ---
 
