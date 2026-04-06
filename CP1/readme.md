@@ -1,6 +1,6 @@
 <div align="center">
   <h3>FIAP 2026 — COMPUTER_ARCHITECTURE_MEMORY_ASSEMBLY_AND_DEBUGGERS_1SM_2026</h3>
-  <p><strong>Aluno:</strong> Paulo André Carminati | <strong>RM:</strong> [COLOQUE SEU RM AQUI]</p>
+  <p><strong>Aluno:</strong> Paulo André Carminati | <strong>RM:</strong> 570877</p>
   <p><strong>Data de Conclusão:</strong> 10 de abril de 2026 às 23:59</p>
 
   <br>
